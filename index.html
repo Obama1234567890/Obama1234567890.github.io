@@ -1,8 +1,95 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <meta charset="UTF-8">
+    <title>Scategories game</title>
+    <script>
+        alert("Welcome to the game");
+        var username = prompt("What would you like to call yourself in this console?");
+        // var credits = prompt("How many credits would you like to start off with?");
+        var profileImage = prompt("Copy/Paste your image link here.");
+        var categories = [
+            "Elements of the Periodic table",
+            "Sports",
+            "Fruits",
+            "Cars",
+            "Drink bottles",
+            "Companies",
+            "Vegetables",
+            "Types of Debates",
+            "Grammar",
+            "Weird phrases that Lachlan says",
+            "Names of Grandmas",
+            "Children's Names",
+            "The the the the schools in America",
+            "Trump's Promises",
+            "States of the US",
+            "Countries of the World",
+            "Alan's favourite things",
+            "Teacher's last names",
+            "President of the US's names",
+            "Breed of Dog",
+            "Clothing",
+            "Video games",
+            "Books",
+            "McDonalds items",
+            "Technical terms",
+            "Fashion",
+            "Breeds of Cat",
+        ]
+        var randomCategories = [];
+        while (categories.length > 0) {
+          // randomNumber chooses a random element in the array of categories
+          var randomNumber = Math.floor(Math.random() * categories.length);
+
+          //splice in this context removes the element depending on the number
+          // then is pushes that removed element in randomCategories
+          randomCategories.push(categories.splice(randomNumber, 1));
+        }
+
+        // categories now equals to randomCategories
+        categories = randomCategories;
+        var alphabet = ["a",'b','c','d','e','f','g',
+                        'h','i','j','k','l','m','n',
+                        'o','p','q','r','s','t','u',
+                        'v','w','x','y','z'];
+
+        var randomise = Math.floor(Math.random() * 26);
+        var randomAlphabet = alphabet[randomise];
+    </script>
+    <style>
+        button {
+            border-radius: 10px;
+            font-size: 36px;
+            font-family: cursive;
+            font-weight: 900;
+        }
+
+        /*body {
+          background-image: url("https://media.giphy.com/media/PkqViSaMm5vQQ/giphy.gif");
+        }*/
+    </style>
 </head>
+
 <body>
-  <h1>Hi, i'm on github</h1>
+    <img id="imageLink" src="" />
+    <h1 id="chosenLetter"></h1>
+    <button id="start" style="background-color: green;">Start</button>
+    <button id="stop" style="background-color: red;">Stop</button>
 </body>
+<script>
+    document.getElementById("imageLink").src = profileImage;
+    var i = 0;
+    while (i < categories.length) {
+        var p = document.createElement("p");
+        var textField = document.createElement("input");
+        document.body.appendChild(p);
+        document.body.appendChild(textField);
+        p.innerHTML = categories[i];
+        i++;
+    }
+    document.getElementById("chosenLetter").innerHTML = "Your chosen letter is " + randomAlphabet;
+</script>
+
 </html>
